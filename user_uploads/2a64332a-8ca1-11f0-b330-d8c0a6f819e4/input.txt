@@ -1,0 +1,8 @@
+file 'Screenshot_1.png'
+duration 1
+file 'Screenshot_3.png'
+duration 1
+file 'Screenshot_5.png'
+duration 1
+file 'Screenshot_2025-07-30_153149.png'
+duration 1

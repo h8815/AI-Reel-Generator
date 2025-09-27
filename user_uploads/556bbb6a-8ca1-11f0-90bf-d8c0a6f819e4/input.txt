@@ -1,0 +1,6 @@
+file 'Gemini_Generated_Image_ci0yqmci0yqmci0y_1.png'
+duration 1
+file 'LinkdeIn_profile.jpg'
+duration 1
+file 'Screenshot_6.png'
+duration 1

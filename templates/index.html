@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}SnapVerse AI{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Create stunning reels with AI</h1>
+        <p class="hero-subtitle">Transform your photos into captivating, vertical videos with smart timing and music sync.</p>
+        <a href="/create" class="cta-button">Start creating</a>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-magic feature-icon"></i>
+                    <h3>Smart enhancement</h3>
+                    <p class="text-muted">Auto-scale, pad and optimize your media for crisp vertical reels.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-film feature-icon"></i>
+                    <h3>Seamless stitching</h3>
+                    <p class="text-muted">Effortlessly combine images into smooth sequences with perfect pacing.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="fas fa-music feature-icon"></i>
+                    <h3>Music sync</h3>
+                    <p class="text-muted">Add your MP3 and we’ll sync visuals to keep the vibe flowing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="showcase-section">
+    <div class="container">
+        <h2 class="showcase-title">Featured creations</h2>
+        <div class="image-grid">
+            <img src="{{ url_for('static', filename='1.jpg') }}" alt="Reel Example 1" class="showcase-image">
+            <img src="{{ url_for('static', filename='2.jpg') }}" alt="Reel Example 2" class="showcase-image">
+            <img src="{{ url_for('static', filename='3.jpg') }}" alt="Reel Example 3" class="showcase-image">
+            <img src="{{ url_for('static', filename='4.jpg') }}" alt="Reel Example 4" class="showcase-image">
+            <img src="{{ url_for('static', filename='5.jpg') }}" alt="Reel Example 5" class="showcase-image">
+        </div>
+    </div>
+</section>
+{% endblock %}
+ 
