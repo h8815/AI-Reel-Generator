@@ -1,55 +1,112 @@
 {% extends "base.html" %}
 
-{% block title %}SnapVerse AI{% endblock %}
+{% block title %}Home - AI Reel Generator{% endblock %}
+
+{% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+{% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
 <section class="hero-section">
-    <div class="container">
-        <h1 class="hero-title">Create stunning reels with AI</h1>
-        <p class="hero-subtitle">Transform your photos into captivating, vertical videos with smart timing and music sync.</p>
-        <a href="/create" class="cta-button">Start creating</a>
+    <div class="hero-content">
+        <h1 class="hero-title">Create Stunning Reels in Minutes</h1>
+        <p class="hero-subtitle">
+            Transform your photos into professional video reels with AI-powered automation.
+            No editing skills required!
+        </p>
+        <div class="cta-buttons">
+            <a href="/create" class="cta-btn cta-btn-primary">
+                ✨ Start Creating Free
+            </a>
+            <a href="/gallery" class="cta-btn cta-btn-secondary">
+                🎬 View Gallery
+            </a>
+        </div>
     </div>
 </section>
 
+<!-- Features Section -->
 <section class="features-section">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <i class="fas fa-magic feature-icon"></i>
-                    <h3>Smart enhancement</h3>
-                    <p class="text-muted">Auto-scale, pad and optimize your media for crisp vertical reels.</p>
-                </div>
+        <h2 class="section-title">✨ Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🖼️</div>
+                <h3 class="feature-title">Drag & Drop</h3>
+                <p class="feature-desc">
+                    Simply drag your images or select multiple files at once.
+                    Reorder them with ease for perfect storytelling.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <i class="fas fa-film feature-icon"></i>
-                    <h3>Seamless stitching</h3>
-                    <p class="text-muted">Effortlessly combine images into smooth sequences with perfect pacing.</p>
-                </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Full Customization</h3>
+                <p class="feature-desc">
+                    Control image duration, transitions, aspect ratios, and add
+                    custom text overlays to match your style.
+                </p>
             </div>
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <i class="fas fa-music feature-icon"></i>
-                    <h3>Music sync</h3>
-                    <p class="text-muted">Add your MP3 and we’ll sync visuals to keep the vibe flowing.</p>
-                </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Lightning Fast</h3>
+                <p class="feature-desc">
+                    High-quality video rendering in seconds. No waiting,
+                    no hassle - just beautiful reels.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Platform Ready</h3>
+                <p class="feature-desc">
+                    Export in perfect formats for Instagram Reels, TikTok,
+                    YouTube Shorts, or any platform you choose.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3 class="feature-title">Audio Sync</h3>
+                <p class="feature-desc">
+                    Add your favorite music and let our AI perfectly sync
+                    your images to the beat.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">Gallery Management</h3>
+                <p class="feature-desc">
+                    All your reels in one place. Download, share, or delete
+                    anytime with full control.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="showcase-section">
-    <div class="container">
-        <h2 class="showcase-title">Featured creations</h2>
-        <div class="image-grid">
-            <img src="{{ url_for('static', filename='1.jpg') }}" alt="Reel Example 1" class="showcase-image">
-            <img src="{{ url_for('static', filename='2.jpg') }}" alt="Reel Example 2" class="showcase-image">
-            <img src="{{ url_for('static', filename='3.jpg') }}" alt="Reel Example 3" class="showcase-image">
-            <img src="{{ url_for('static', filename='4.jpg') }}" alt="Reel Example 4" class="showcase-image">
-            <img src="{{ url_for('static', filename='5.jpg') }}" alt="Reel Example 5" class="showcase-image">
+<!-- CTA Section -->
+<section class="hero-section" style="min-height: 50vh;">
+    <div class="hero-content">
+        <h2 class="hero-title" style="font-size: 3rem;">Ready to Create?</h2>
+        <p class="hero-subtitle">
+            Join thousands of creators making amazing content every day
+        </p>
+        <div class="cta-buttons">
+            <a href="/create" class="cta-btn cta-btn-primary">
+                Get Started Now
+            </a>
+            <a href="/help" class="cta-btn cta-btn-secondary">
+                Learn More
+            </a>
         </div>
     </div>
 </section>
 {% endblock %}
- 

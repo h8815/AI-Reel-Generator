@@ -1,4 +1,4 @@
-# SnapVerse AI - Video Creation Platform
+# AI Reel Generator - Video Creation Platform
 
 A Flask-based web application for creating short videos from images and audio files using FFmpeg.
 
