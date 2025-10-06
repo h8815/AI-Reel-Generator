@@ -83,7 +83,7 @@
 ## 📦 Prerequisites
 - **Python 3.9+**
 - **FFmpeg**
-    - Windows: Download from **`[ffmpeg.org](https://ffmpeg.org/download.html)`**
+    - Windows: Download from **[ffmpeg.org](https://ffmpeg.org/download.html)**
    - macOS: `brew install ffmpeg`
     - Linux: `sudo apt-get install ffmpeg`
 
