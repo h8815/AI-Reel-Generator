@@ -436,12 +436,26 @@
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
 }
 
-/* Image Preview Grid */
-.image-preview-container {
+/* New wrapper for the image previews to enable horizontal scrolling */
+.image-preview-wrapper {
+    max-height: 250px;
+    /* Adjust this value to set the desired height */
+    overflow-y: auto;
+    border: 1px solid #334466;
+    border-radius: 8px;
+    padding: 10px;
     margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    background-color: #111d33;
+    display: none;
+    /* Hide by default, show when images are present */
+}
+
+/* Image Preview Section */
+.image-preview-container {
+    display: flex;
+    flex-wrap: nowrap;
     gap: 15px;
+    /*padding-bottom: 10px;  To prevent scrollbar from hiding the bottom of the content */
 }
 
 .image-preview {
@@ -452,6 +466,8 @@
     border: 2px solid rgba(148, 163, 184, 0.2);
     transition: all 0.3s;
     cursor: move;
+    flex-shrink: 0;
+    width: 150px;
 }
 
 .image-preview:hover {
