@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- Loading Overlay -->
 <div class="loading-overlay" id="loadingOverlay">
     <div class="spinner"></div>
     <div class="loading-text">✨ Creating Your Masterpiece...</div>
@@ -43,7 +42,6 @@
                 onsubmit="return validateAndSubmit(event)">
                 <input name="uuid" type="hidden" value="{{myid}}">
 
-                <!-- Reel Name Input -->
                 <div style="margin-bottom: 25px;">
                     <label class="reel-name-label" for="reelName">🏷️ Reel Name *</label>
                     <input type="text" id="reelName" name="reel_name" class="reel-name-input"
@@ -52,7 +50,6 @@
                     <span class="info-badge">Use descriptive names for easy identification</span>
                 </div>
 
-                <!-- Drag & Drop Zone -->
                 <h3 class="section-title">📸 Upload Images</h3>
                 <div class="drop-zone" id="dropZone">
                     <div class="drop-zone-icon">🖼️</div>
@@ -66,15 +63,16 @@
                     </div>
                 </div>
 
-                <!-- Image Preview Container -->
-                <div id="imagePreviewContainer" class="image-preview-container"></div>
+                <div class="image-preview-wrapper" id="imagePreviewWrapper">
+                    <div id="imagePreviewContainer" class="image-preview-container"></div>
+                </div>
+
                 <div id="imageCountBadge" style="text-align: center; display: none;">
                     <span class="image-count-badge">
                         <span id="imageCount">0</span> image(s) selected
                     </span>
                 </div>
 
-                <!-- Audio Upload Section -->
                 <h3 class="section-title">🎵 Upload Audio</h3>
                 <div class="text-input-container">
                     <input class="file-input" id="audioInput" name="audio" type="file" accept=".mp3,audio/mpeg"
@@ -82,10 +80,8 @@
                     <div class="file-size-info">Max 50MB • MP3 format only</div>
                 </div>
 
-                <!-- Customization Options -->
                 <h3 class="section-title">🎨 Customization Options</h3>
                 <div class="customization-grid">
-                    <!-- Image Duration -->
                     <div class="custom-option">
                         <div class="option-icon">⏱️</div>
                         <label class="custom-label" for="imageDuration">Image Duration</label>
@@ -94,20 +90,6 @@
                         <div class="file-size-info">0.5 to 10 seconds per image</div>
                     </div>
 
-                    <!-- Transition Effect -->
-                    <div class="custom-option">
-                        <div class="option-icon">✨</div>
-                        <label class="custom-label" for="transition">Transition Effect</label>
-                        <select id="transition" name="transition" class="custom-select"
-                            style="background-color: rgb(17, 29, 51);">
-                            <option value="none">None (Default)</option>
-                            <option value="fade">Fade In/Out</option>
-                            <option value="zoom">Zoom Effect</option>
-                        </select>
-                        <div class="file-size-info">Add smooth transitions</div>
-                    </div>
-
-                    <!-- Aspect Ratio -->
                     <div class="custom-option">
                         <div class="option-icon">📐</div>
                         <label class="custom-label" for="aspectRatio">Aspect Ratio</label>
@@ -119,9 +101,54 @@
                         </select>
                         <div class="file-size-info">Choose your platform</div>
                     </div>
+
+                    <div class="custom-option">
+                        <div class="option-icon">✨</div>
+                        <label class="custom-label" for="filterEffect">Video Filter</label>
+                        <select id="filterEffect" name="filter_effect" class="custom-select"
+                            style="background-color: rgb(17, 29, 51);">
+                            <optgroup label="🎨 Basic Filters">
+                                <option value="none">None (Default)</option>
+                                <option value="grayscale">Grayscale / Black & White</option>
+                                <option value="sepia">Sepia / Vintage Brown</option>
+                            </optgroup>
+
+                            <optgroup label="🌈 Color Adjustments">
+                                <option value="vibrant">Vibrant / Saturated Colors</option>
+                                <option value="warm">Warm Tone / Orange Tint</option>
+                                <option value="cool">Cool Tone / Blue Tint</option>
+                                <option value="vintage">Vintage / Retro</option>
+                            </optgroup>
+
+                            <optgroup label="🎬 Dramatic Filters">
+                                <option value="noir">Film Noir / High Contrast B&W</option>
+                                <option value="dramatic">Dramatic / Dark Mood</option>
+                                <option value="cinematic">Cinematic / Movie Style</option>
+                            </optgroup>
+
+                            <optgroup label="☀️ Bright & Light">
+                                <option value="bright">Bright / Enhanced</option>
+                                <option value="soft">Soft / Dreamy</option>
+                                <option value="dream">Dream / Ethereal</option>
+                            </optgroup>
+
+                            <optgroup label="📱 Instagram Style">
+                                <option value="nashville">Nashville / Warm Pink</option>
+                                <option value="lofi">Lo-Fi / High Contrast</option>
+                                <option value="xpro">X-Pro II / Cross Process</option>
+                            </optgroup>
+
+                            <optgroup label="🎭 Special Effects">
+                                <option value="fade">Faded / Washed Out</option>
+                                <option value="sharp">Sharp / Enhanced Details</option>
+                                <option value="vignette">Vignette / Dark Edges</option>
+                                <option value="blur_edges">Blur Edges / Focus Center</option>
+                            </optgroup>
+                        </select>
+                        <div class="file-size-info">Apply a professional visual filter to your reel</div>
+                    </div>
                 </div>
 
-                <!-- Text Overlay -->
                 <div class="custom-option" style="margin-top: 20px;">
                     <div class="option-icon">💬</div>
                     <label class="custom-label" for="textOverlay">Text Overlay (Optional)</label>
@@ -146,6 +173,7 @@
 
     const dropZone = document.getElementById('dropZone');
     const imageInput = document.getElementById('imageInput');
+    const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
     const imageCountBadge = document.getElementById('imageCountBadge');
     const imageCountSpan = document.getElementById('imageCount');
@@ -209,10 +237,12 @@
         imagePreviewContainer.innerHTML = '';
 
         if (selectedFiles.length === 0) {
+            imagePreviewWrapper.style.display = 'none';
             imageCountBadge.style.display = 'none';
             return;
         }
 
+        imagePreviewWrapper.style.display = 'flex';
         imageCountBadge.style.display = 'block';
         imageCountSpan.textContent = selectedFiles.length;
 
