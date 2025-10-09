@@ -53,7 +53,7 @@
 
 #### ⚙️ Customization
 - Adjustable duration (0.5–10 sec)  
-- Transitions: Fade, Zoom  
+- Video filters: Grayscale, Sepia 
 - Text overlay & multiple aspect ratios  
 
 #### 📐 Aspect Ratios
