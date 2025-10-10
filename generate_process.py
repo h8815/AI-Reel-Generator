@@ -199,7 +199,6 @@ if __name__ == "__main__":
                                             aspect_ratio = value
                                         elif key == "filter_effect":
                                             filter_effect = value
-
                         create_reel(
                             folder, folder, text_overlay, aspect_ratio, filter_effect
                         )

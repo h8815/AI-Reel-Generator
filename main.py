@@ -463,10 +463,8 @@ def create_reel(
             raise Exception(f"FFmpeg failed with return code {result.returncode}")
 
         print(f"Successfully created reel: {reel_name}")
-
     finally:
         os.chdir(original_dir)
-
 
 if __name__ == "__main__":
     # Create necessary directories

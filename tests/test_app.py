@@ -28,7 +28,7 @@ def test_gallery_page(client):
 
 # You can add more complex tests here, for example, to test file uploads and reel creation.
 # This would involve mocking the file uploads and the subprocess call to FFmpeg.
-# For example, you could test the `create` route's validation logic:
+# For example, you could test the `create` route's validation logic: 
 
 def test_create_reel_no_name(client):
     """Test that creating a reel without a name returns an error."""
