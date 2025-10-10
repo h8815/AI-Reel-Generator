@@ -66,6 +66,7 @@
     letter-spacing: 0.5px;
 }
 
+
 .submit-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
